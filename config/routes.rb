@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  get 'movies/newUpdate' => 'movies#newUpdate', as: :newUpdate
+  put 'movies/actualUpdate' => 'movies#actualUpdate', as: :actualUpdate
 
+  get 'movies/deleteT' => 'movies#deleteT', as: :deleteT
+  post 'movies/deleteMovieTitle' => 'movies#deleteMovieTitle', as: :deleteMovieTitle
+
+  get 'movies/deleteR' => 'movies#deleteR', as: :deleteR
+  post 'movies/deleteMovieRating' => 'movies#deleteMovieRating', as: :deleteMovieRating
+
+  resources :movies
   # You can have the root of your site routed with "root"
   root 'movies#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -14,7 +25,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :movies
+ 
   
   # Example resource route with options:
   #   resources :products do
