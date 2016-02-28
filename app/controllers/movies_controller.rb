@@ -37,8 +37,10 @@ class MoviesController < ApplicationController
       # @bgcolor = "hilite"
 
       if(params[:sort_by].to_s == "title")
+        @title_header = 'hilite'
         @movies = @movies.order(:title)
       elsif(params[:sort_by].to_s == "release_date")
+        @release_date_header = 'hilite'
         @movies = @movies.order(:release_date)
       end
       session[:ratings] = params[:ratings]
